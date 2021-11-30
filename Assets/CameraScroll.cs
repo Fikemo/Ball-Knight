@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraScroll : MonoBehaviour
 {
     private Transform player;
-    private CharacterController characterController;
+    private PlayerController playerController;
     private float playerVelocity;
     public float scrollSpeed;
     public float xSpeedup;
@@ -20,14 +20,14 @@ public class CameraScroll : MonoBehaviour
     {
         // Grab the object with the tag player
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        // Grab the CharacterController from the player
-        characterController = player.GetComponent<CharacterController>();
+        // Grab the PlayerController from the player
+        playerController = player.GetComponent<PlayerController>();
     }
     // Update is called once per frame
     void FixedUpdate()
     {
         // Grab velocity from characterController
-        playerVelocity = characterController.velocity.x;
+        playerVelocity = playerController.velocity.x;
 
         // Get relative x difference between camera and player
         // If player is behind camera, this is negative
