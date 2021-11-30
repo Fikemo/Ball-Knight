@@ -25,7 +25,7 @@ public class CameraScroll : MonoBehaviour
         // If the distance is large enough to put the player outside the deadzone
         if (yDifference >= verBoundary){
             // Move the camera toward the player in the y direction
-            Vector2 yPos = new Vector2(transform.position, follow.transform.position.y);
+            Vector2 yPos = new Vector2(transform.position.x, follow.transform.position.y);
             transform.position = Vector2.MoveTowards(transform.position, yPos, ySpeed * Time.deltaTime);
         }
         // If the player is too far in the x direction
