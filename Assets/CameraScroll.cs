@@ -19,7 +19,7 @@ public class CameraScroll : MonoBehaviour
     void Start()
     {
         // Grab the object with the tag player
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         // Grab the CharacterController from the player
         characterController = player.GetComponent<CharacterController>();
     }
@@ -34,11 +34,11 @@ public class CameraScroll : MonoBehaviour
         // xDifference = player.transform.position.x - transform.position.x;
 
         // If the camera is now aligned with the camera in the y direction, record how far off alignment it is
-        yDifference = Mathf.Abs(transform.position.y - player.transform.position.y);
+        yDifference = Mathf.Abs(transform.position.y - player.position.y);
         // If the distance is large enough to put the player outside the deadzone
         if (yDifference >= verBoundary){
             // Move the camera toward the player in the y direction
-            Vector2 yPos = new Vector2(transform.position.x, player.transform.position.y);
+            Vector2 yPos = new Vector2(transform.position.x, player.position.y);
             transform.position = Vector2.MoveTowards(transform.position, yPos, ySpeed * Time.deltaTime);
         }
         // If the player is too far in the x direction
