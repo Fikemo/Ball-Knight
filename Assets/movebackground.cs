@@ -17,6 +17,6 @@ public class movebackground : MonoBehaviour
     void FixedUpdate()
     {
         // Move the background to the left by half of the camera's speed
-        transform.position.x -= cameraScroll.scrollSpeed / parallaxFactor * Time.deltaTime;
+        transform.position = new Vector2(transform.position.x - cameraScroll.scrollSpeed / parallaxFactor * Time.deltaTime, transform.position.y);
     }
 }
