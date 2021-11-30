@@ -15,7 +15,7 @@ public class CameraScroll : MonoBehaviour
     public bool scrollEnabled = true;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Get relative x difference between camera and player
         // If player is behind camera, this is negative

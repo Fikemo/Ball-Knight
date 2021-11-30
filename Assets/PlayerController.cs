@@ -12,17 +12,6 @@ public class PlayerController : MonoBehaviour
     public float moveStrength;
     public float jumpStrength;
     public float torqueStrength;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnMove(InputValue value) {
         move = value.Get<Vector2>().x * moveStrength;
