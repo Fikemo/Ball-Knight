@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float moveStrength;
     public float jumpStrength;
     public float torqueStrength;
-    private Vector2 speed;
+    public Vector2 speed;
 
     private void OnMove(InputValue value) {
         move = value.Get<Vector2>().x * moveStrength;
