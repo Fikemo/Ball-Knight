@@ -328,9 +328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: {fileID: 1189387791}
   scrollSpeed: 1
-  trackingSpeed: 20
-  xDifference: 0
-  yDifference: 0
+  xSpeedup: 0.01
+  ySpeed: 1
   horBoundary: 5
   verBoundary: 3
   scrollEnabled: 1
@@ -1269,7 +1268,7 @@ GameObject:
   - component: {fileID: 1189387793}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
