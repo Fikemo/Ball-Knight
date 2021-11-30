@@ -6,30 +6,33 @@ public class CameraScroll : MonoBehaviour
 {
     public Transform follow;
     public float scrollSpeed;
-    public float trackingSpeed;
-    private Vector3 moveTemp;
-    public float xDifference;
-    public float yDifference;
+    public float xSpeedup;
+    public float ySpeed;
+    private float xDifference;
+    private float yDifference;
     public float horBoundary = 5;
     public float verBoundary = 3;
-
     public bool scrollEnabled = true;
 
     // Update is called once per frame
     void Update()
     {
+        // Get relative x difference between camera and player
+        // If player is behind camera, this is negative
         xDifference = follow.transform.position.x - transform.position.x;
-        if (follow.transform.position.y < transform.position.y){
-            yDifference = transform.position.y - follow.transform.position.y ;
-        }else{
-            yDifference = follow.transform.position.y - transform.position.y;
+        // If the camera is now aligned with the camera in the y direction, record how far off alignment it is
+        yDifference = Mathf.Abs(transform.position.y - follow.transform.position.y);
+        // If the distance is large enough to put the player outside the deadzone
+        if (yDifference >= verBoundary){
+            // Move the camera toward the player in the y direction
+            yPos = new Vector2(transform.position, follow.transform.position.y);
+            transform.position = Vector2.MoveTowards(transform.position, yPos, ySpeed * Time.deltaTime);
         }
-        if (xDifference >= horBoundary || yDifference >= verBoundary){
-            moveTemp = follow.transform.position;
-            moveTemp.z = -10;
-            transform.position = Vector3.MoveTowards(transform.position,moveTemp,trackingSpeed * Time.deltaTime);
+        // If the player is too far in the x direction
+        if (xDifference >= horBoundary){
+            // Speed the camera up by the speedup factor
+            scrollSpeed += xSpeedup;
         }
-
         // scroll on x axis
         if (scrollEnabled) transform.position += new Vector3(scrollSpeed, 0.0f, 0.0f) * Time.deltaTime;
 
