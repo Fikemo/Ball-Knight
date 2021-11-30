@@ -5,6 +5,7 @@ using UnityEngine;
 public class movebackground : MonoBehaviour
 {
     private CameraScroll cameraScroll;
+    public float parallaxFactor;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,6 @@ public class movebackground : MonoBehaviour
     void FixedUpdate()
     {
         // Move the background to the left by half of the camera's speed
-        transform.position.x -= cameraScroll.scrollSpeed / 2.0 * Time.deltaTime;
+        transform.position.x -= cameraScroll.scrollSpeed / parallaxFactor * Time.deltaTime;
     }
 }
