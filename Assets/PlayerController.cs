@@ -48,8 +48,7 @@ public class PlayerController : MonoBehaviour
         return hit.collider != null;
     }
 
-    // TODO: Implement method that returns x velocity of the player
     public float velocity(){
-        return 0;
+        return GetComponent<Rigidbody2D>().velocity.x;
     }
 }
