@@ -728,7 +728,7 @@ MonoBehaviour:
   move: 0
   jump: 0
   torque: 0
-  moveStrength: 250
+  moveStrength: 100
   jumpStrength: 500
   torqueStrength: 500
 --- !u!1 &1467699336

@@ -42,7 +42,7 @@ public class CameraScroll : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, yPos, ySpeed * Time.deltaTime);
         }
         // If the player is too far in the x direction
-        if (playerVelocity > scrollSpeed){
+        if (playerVelocity > scrollSpeed && player.position.x - transform.position.x >= horBoundary){
             // Speed the camera up by the speedup factor
             scrollSpeed = playerVelocity;
         }
