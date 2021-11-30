@@ -27,7 +27,7 @@ public class CameraScroll : MonoBehaviour
     void FixedUpdate()
     {
         // Grab velocity from characterController
-        playerVelocity = playerController.velocity.x;
+        playerVelocity = playerController.velocity();
 
         // Get relative x difference between camera and player
         // If player is behind camera, this is negative

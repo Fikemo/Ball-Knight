@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public float moveStrength;
     public float jumpStrength;
     public float torqueStrength;
-    public Vector2 speed;
 
     private void OnMove(InputValue value) {
         move = value.Get<Vector2>().x * moveStrength;
@@ -47,5 +46,10 @@ public class PlayerController : MonoBehaviour
         LayerMask mask = LayerMask.GetMask("Ground");
         RaycastHit2D hit = Physics2D.Raycast(circleCollider2D.bounds.center, Vector2.down, circleCollider2D.bounds.extents.y + 0.01f, mask);
         return hit.collider != null;
+    }
+
+    // TODO: Implement method that returns x velocity of the player
+    public float velocity(){
+        return 0;
     }
 }
