@@ -47,8 +47,9 @@ public class CameraScroll : MonoBehaviour
         // If the player is too far in the x direction
         if (playerVelocity > scrollSpeed && player.position.x - transform.position.x >= horBoundary){
             // Speed the camera up by the speedup factor
+			float oldSpeed = scrollSpeed;
             scrollSpeed = playerVelocity;
-			musicSource.pitch += scrollSpeed/100;
+			musicSource.pitch += (scrollSpeed - oldSpeed)/100;
         }
         // scroll on x axis
         if (scrollEnabled) transform.position += new Vector3(scrollSpeed, 0.0f, 0.0f) * Time.deltaTime;
