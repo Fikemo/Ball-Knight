@@ -53,4 +53,15 @@ public class CameraScroll : MonoBehaviour
         // transform.position = new Vector3(transform.position.x, follow.position.y, transform.position.z);
 
     }
+
+    private void OnDrawGizmos() {
+        Vector2 fromPosition = transform.position;
+        fromPosition.x += horBoundary;
+        fromPosition.y += 5;
+        
+        Vector2 toPosition = fromPosition;
+        toPosition.y -= 10;
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(fromPosition, toPosition);
+    }
 }
