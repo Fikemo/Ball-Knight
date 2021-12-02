@@ -21,6 +21,7 @@ public class WinZone : MonoBehaviour
             backgroundPanel.SetActive(true);
             winText.SetActive(true);
             restartButton.SetActive(true);
+			AudioListener.volume = 0;
         }
     }
 }
