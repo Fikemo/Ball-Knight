@@ -7,6 +7,5 @@ public class GameManager : MonoBehaviour
 {
     public void RestartScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		AudioListener.volume = 1;
     }
 }
