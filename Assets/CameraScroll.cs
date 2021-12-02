@@ -15,13 +15,16 @@ public class CameraScroll : MonoBehaviour
     public float horBoundary = 5;
     public float verBoundary = 3;
     public bool scrollEnabled = true;
+	public AudioSource musicSource;
 
     void Start()
     {
+		musicSource = GetComponent<AudioSource>();
         // Grab the object with the tag player
         player = GameObject.FindGameObjectWithTag("Player").transform;
         // Grab the PlayerController from the player
         playerController = player.GetComponent<PlayerController>();
+		
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -45,6 +48,7 @@ public class CameraScroll : MonoBehaviour
         if (playerVelocity > scrollSpeed && player.position.x - transform.position.x >= horBoundary){
             // Speed the camera up by the speedup factor
             scrollSpeed = playerVelocity;
+			musicSource.pitch += scrollSpeed/100;
         }
         // scroll on x axis
         if (scrollEnabled) transform.position += new Vector3(scrollSpeed, 0.0f, 0.0f) * Time.deltaTime;

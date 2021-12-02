@@ -20,6 +20,7 @@ public class LoseZone : MonoBehaviour
             backgroundPanel.SetActive(true);
             loseText.SetActive(true);
             restartButton.SetActive(true);
+			AudioListener.volume = 0;
         }
     }
 }

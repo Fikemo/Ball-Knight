@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
-{
+{	
     // private Vector2 move;
     public float move;
     public float jump;
@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     public float moveStrength;
     public float jumpStrength;
     public float torqueStrength;
-
+	public AudioSource jumpSource;
+	
     private void OnMove(InputValue value) {
         move = value.Get<Vector2>().x * moveStrength;
         torque = - value.Get<Vector2>().x * torqueStrength;
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private void OnJump(InputValue value) {
         if (value.isPressed && IsGroundedRaycast()) {
             jump = jumpStrength;
+			jumpSource = GetComponent<AudioSource>();
+			jumpSource.Play();
             Debug.Log(jump);
         }
     }
